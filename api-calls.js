@@ -12,7 +12,7 @@ export const getTrails = async () => {
 
 export const getCoordinates = async () => {
   try {
-    const response = await fetch('');
+    const response = await fetch(`${COORDINATES_URL}${COORDINATES_KEY}${COORDINATES_UNIQUE_USER}`);
     if( !response.ok ) {
       throw new Error('There was an error getting your coordinates')
     }
