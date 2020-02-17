@@ -11,15 +11,15 @@ class Trails extends Component {
     }
   }
 
-  componentDidMount() {
-    const coordinates = getCoordinates();
+  async componentDidMount() {
+    const coordinates = await getCoordinates();
     console.log(coordinates);
   }
 
   render() {
     return(
       <div>
-
+        <p>This is where the trails will go!</p>
       </div>
     )
   }

@@ -27,3 +27,15 @@ export const getCoordinates = async () => {
     throw new Error(error)
   }
 }
+
+export const getTrail = async (trailNo) => {
+  try {
+    const response = await fetch();
+    if( !response.ok ) {
+      throw new Error(`There was an error getting trail number ${trailNo}`)
+    }
+    return response.json;
+  } catch (error) {
+    throw new Error(error)
+  } 
+}
