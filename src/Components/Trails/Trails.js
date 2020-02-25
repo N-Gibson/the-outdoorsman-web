@@ -13,10 +13,13 @@ class Trails extends Component {
 
   async componentDidMount() {
     const coordinates = await getCoordinates();
-    console.log(coordinates);
+    this.setState({ longitude: coordinates.location.lng });
+    this.setState({ latitude: coordinates.location.lat });
   }
 
   render() {
+    console.log('longitude: ', this.state.longitude);
+    console.log('latitude: ', this.state.latitude);
     return(
       <div>
         <p>This is where the trails will go!</p>

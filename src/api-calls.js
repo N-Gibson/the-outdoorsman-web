@@ -11,14 +11,13 @@ export const getTrails = async () => {
 }
 
 export const getCoordinates = async () => {
-  const url = `${process.env.REACT_APP_COORDINATES_URL}${process.env.REACT_APP_COORDINATES_KEY}${process.env.COORDINATES_UNIQUE_USER}`;
   const options = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
   };
 
   try {
-    const response = await fetch(url, options);
+    const response = await fetch(process.env.REACT_APP_PROXY_URL, options);
     if( !response.ok ) {
       throw new Error('There was an error getting your coordinates')
     }
