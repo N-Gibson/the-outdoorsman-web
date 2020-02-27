@@ -24,7 +24,7 @@ class Trails extends Component {
   render() {
     let defaultTrails;
     if (this.state.currentTrails !== []) {
-      defaultTrails = this.state.currentTrails.map(trail => <Trail props={trail} key={trail.id}/>)
+      defaultTrails = this.state.currentTrails.map(trail => <Trail trail={trail} key={trail.id}/>)
     }
 
     return(
