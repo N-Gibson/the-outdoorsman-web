@@ -1,6 +1,6 @@
-export const getTrails = async () => {
+export const getTrails = async (lat, lng) => {
   try {
-    const response = await fetch(`${process.env.REACT_APP_HIKING_PROJECT_ALL_TRAILS_URL}lat=40.0274&lon=-105.2519&maxDistance=10&key=${process.env.REACT_APP_HIKING_PROJECT_KEY}`)
+    const response = await fetch(`${process.env.REACT_APP_HIKING_PROJECT_ALL_TRAILS_URL}lat=${lat}&lon=${lng}&maxDistance=10&key=${process.env.REACT_APP_HIKING_PROJECT_KEY}`)
     if ( !response.ok ) {
       throw new Error('There was an error loading trails.');
     }
@@ -37,5 +37,5 @@ export const getCoordinates = async () => {
 //     return response.json;
 //   } catch (error) {
 //     throw new Error(error)
-//   } 
+//   }
 // }

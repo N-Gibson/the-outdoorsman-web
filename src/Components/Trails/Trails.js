@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getTrails, getCoordinates } from '../../api-calls';
+import Trail from '../Trail/Trail';
 
 class Trails extends Component {
   constructor() {
@@ -7,7 +8,7 @@ class Trails extends Component {
     this.state = {
       longitude: '',
       latitude: '',
-      currentTrail: {},
+      currentTrails: [],
     }
   }
 
@@ -15,14 +16,20 @@ class Trails extends Component {
     const coordinates = await getCoordinates();
     this.setState({ longitude: coordinates.location.lng });
     this.setState({ latitude: coordinates.location.lat });
+
+    const trails = await getTrails(this.state.latitude, this.state.longitude);
+    this.setState({ currentTrails: trails.trails });
   }
 
   render() {
-    console.log('longitude: ', this.state.longitude);
-    console.log('latitude: ', this.state.latitude);
+    let defaultTrails;
+    if (this.state.currentTrails !== []) {
+      defaultTrails = this.state.currentTrails.map(trail => <Trail props={trail} key={trail.id}/>)
+    }
+
     return(
       <div>
-        <p>This is where the trails will go!</p>
+        {defaultTrails}
       </div>
     )
   }
