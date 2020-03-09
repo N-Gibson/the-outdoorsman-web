@@ -28,7 +28,7 @@ export const getCoordinates = async () => {
 }
 
 export const getTrail = async (trailNo) => {
-  const url = `${REACT_APP_TRAIL_BY_ID}${trailNo}${REACT_APP_TRAIL_BY_ID_KEY}`
+  const url = `${process.env.REACT_APP_TRAIL_BY_ID}${trailNo}${process.env.REACT_APP_TRAIL_BY_ID_KEY}`
   try {
     const response = await fetch(url);
     if( !response.ok ) {
