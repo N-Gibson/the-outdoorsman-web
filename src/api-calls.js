@@ -27,15 +27,15 @@ export const getCoordinates = async () => {
   }
 }
 
-// export const getTrail = async (trailNo) => {
-//   const url = `${REACT_APP_TRAIL_BY_ID}${trailNo}${REACT_APP_TRAIL_BY_ID_KEY}`
-//   try {
-//     const response = await fetch(url);
-//     if( !response.ok ) {
-//       throw new Error(`There was an error getting trail number ${trailNo}`)
-//     }
-//     return response.json;
-//   } catch (error) {
-//     throw new Error(error)
-//   }
-// }
+export const getTrail = async (trailNo) => {
+  const url = `${REACT_APP_TRAIL_BY_ID}${trailNo}${REACT_APP_TRAIL_BY_ID_KEY}`
+  try {
+    const response = await fetch(url);
+    if( !response.ok ) {
+      throw new Error(`There was an error getting trail number ${trailNo}`)
+    }
+    return response.json;
+  } catch (error) {
+    throw new Error(error)
+  }
+}
