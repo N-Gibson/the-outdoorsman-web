@@ -1,6 +1,6 @@
-export const getTrails = async () => {
+export const getTrails = async (lat, lng) => {
   try {
-    const response = await fetch(`${process.env.REACT_APP_HIKING_PROJECT_ALL_TRAILS_URL}lat=40.0274&lon=-105.2519&maxDistance=10&key=${process.env.REACT_APP_HIKING_PROJECT_KEY}`)
+    const response = await fetch(`${process.env.REACT_APP_HIKING_PROJECT_ALL_TRAILS_URL}lat=${lat}&lon=${lng}&maxDistance=10&key=${process.env.REACT_APP_HIKING_PROJECT_KEY}`)
     if ( !response.ok ) {
       throw new Error('There was an error loading trails.');
     }
@@ -11,14 +11,13 @@ export const getTrails = async () => {
 }
 
 export const getCoordinates = async () => {
-  const url = `${process.env.REACT_APP_COORDINATES_URL}${process.env.REACT_APP_COORDINATES_KEY}${process.env.COORDINATES_UNIQUE_USER}`;
   const options = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
   };
 
   try {
-    const response = await fetch(url, options);
+    const response = await fetch(process.env.REACT_APP_PROXY_URL, options);
     if( !response.ok ) {
       throw new Error('There was an error getting your coordinates')
     }
@@ -29,7 +28,7 @@ export const getCoordinates = async () => {
 }
 
 export const getTrail = async (trailNo) => {
-  const url = `${REACT_APP_TRAIL_BY_ID}${trailNo}${REACT_APP_TRAIL_BY_ID_KEY}`
+  const url = `${process.env.REACT_APP_TRAIL_BY_ID}${trailNo}${process.env.REACT_APP_TRAIL_BY_ID_KEY}`
   try {
     const response = await fetch(url);
     if( !response.ok ) {
@@ -38,5 +37,5 @@ export const getTrail = async (trailNo) => {
     return response.json;
   } catch (error) {
     throw new Error(error)
-  } 
+  }
 }
