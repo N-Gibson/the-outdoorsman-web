@@ -7,6 +7,7 @@ class Campgrounds extends Component {
     this.state ={
       longitude: '',
       latitude: '',
+      campgrounds: [],
     }
   }
 
@@ -16,7 +17,8 @@ class Campgrounds extends Component {
     this.setState({ latitude: coordinates.location.lat });
 
     const campgrounds = await getCampgrounds(this.state.latitude, this.state.longitude, 50);
-    console.log(campgrounds)
+
+    this.setState({ campgrounds: campgrounds.campgrounds });
   }
 
   render() {
