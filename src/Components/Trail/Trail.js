@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Trail = (props) => {
   return (
@@ -16,4 +15,4 @@ const Trail = (props) => {
   )
 }
 
-export default Trail
+export default Trail;
