@@ -39,3 +39,17 @@ export const getTrail = async (trailNo) => {
     throw new Error(error)
   }
 }
+
+export const getCampgrounds = async (lat, lng, distance) => {
+  const url = `${process.env.REACT_APP_CAMPGROUNDS_URL}${process.env.REACT_APP_CAMPGROUNDS_LAT}${lat}${process.env.REACT_APP_CAMPGROUNDS_LNG}${lng}${process.env.REACT_APP_CAMPGROUNDS_DISTANCE}${distance}${process.env.REACT_APP_CAMPGROUNDS_KEY}`
+
+  try {
+    const response = await fetch(url);
+    if( !response.ok ) {
+      throw new Error('There was an error fetching campgrounds near you.');
+    }
+    return response.json();
+  } catch (error) {
+    throw new Error(error)
+  }
+}

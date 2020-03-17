@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getCoordinates } from '../../api-calls';
+import { getCoordinates, getCampgrounds } from '../../api-calls';
 
 class Campgrounds extends Component {
   constructor() {
@@ -14,6 +14,9 @@ class Campgrounds extends Component {
     const coordinates = await getCoordinates()
     this.setState({ longitude: coordinates.location.lng });
     this.setState({ latitude: coordinates.location.lat });
+
+    const campgrounds = await getCampgrounds(this.state.latitude, this.state.longitude, 50);
+    console.log(campgrounds)
   }
 
   render() {
