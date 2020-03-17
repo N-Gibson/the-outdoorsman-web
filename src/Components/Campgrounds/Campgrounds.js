@@ -5,7 +5,8 @@ class Campgrounds extends Component {
   constructor() {
     super();
     this.state ={
-
+      longitude: '',
+      latitude: '',
     }
   }
 
@@ -15,9 +16,11 @@ class Campgrounds extends Component {
   }
 
   render() {
-    <div>
+    return (
+      <div>
 
-    </div>
+      </div>
+    )
   }
 }
 
