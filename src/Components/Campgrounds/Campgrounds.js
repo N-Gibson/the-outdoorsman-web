@@ -12,7 +12,8 @@ class Campgrounds extends Component {
 
   async componentDidMount() {
     const coordinates = await getCoordinates()
-    console.log(coordinates)
+    this.setState({ longitude: coordinates.location.lng });
+    this.setState({ latitude: coordinates.location.lat });
   }
 
   render() {
