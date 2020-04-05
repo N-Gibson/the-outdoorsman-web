@@ -18,4 +18,4 @@ In order to run this application you need to clone the app locally to your machi
  `*`
  - run `npm start`
  
- * note at the moment the proxy server has to be running before starting this application. 
+ `*` note at the moment the proxy server has to be running before starting this application. 
