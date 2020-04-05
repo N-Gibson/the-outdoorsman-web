@@ -14,6 +14,7 @@ The tech used in this application includes:
 In order to run this application you need to clone the app locally to your machine 
  - run `git clone `https://github.com/N-Gibson/the-outdoorsman-web.git``
  - run `npm install`
+ 
  `*`
  - run `npm start`
  
